@@ -3,6 +3,7 @@ title: Claustro
 ---
 
 Tras las elecciones del 28N, nuestro grupo claustral obtuvo finalmente 53 representantes:
+
 45 correspondientes al sector de profesorado doctor con vinculación permanente, y 8 del sector
 de profesorado no doctor y/o no permamente. Bájate la lista pinchando en el icono a continuación:
 
