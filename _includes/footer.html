@@ -1,0 +1,63 @@
+{% include liquid_variables.html %}
+<div class="row">
+    <div class="large-7 large-offset-1 text-center large-text-left column">
+        {% assign first_element = true %}
+        {% for line in site.data.footer.left %}
+            {% if first_element == true %}
+                {% assign first_element = false %}
+                {% if line.link == '' or line.link == nil %}
+                    <span>{{ line.label }}</span>
+                {% else %}
+                    <a href="{{ line.link }}">{{ line.label }}</a>
+                {% endif %}
+            {% else %}
+                <span>|</span>
+                {% if line.link == '' or line.link == nil %}
+                    <span>{{ line.label }}</span>
+                {% else %}
+                    <a href="{{ line.link }}">{{ line.label }}</a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="large-3 text-center large-text-right end column">
+        {% assign first_element = true %}
+        {% for line in site.data.footer.right %}
+            {% if first_element == true %}
+                {% assign first_element = false %}
+                {% if line.link == '' or line.link == nil %}
+                    <span>{{ line.label }}</span>
+                {% else %}
+                    <a href="{{ line.link }}">{{ line.label }}</a>
+                {% endif %}
+            {% else %}
+                <span>|</span>
+                {% if line.link == '' or line.link == nil %}
+                    <span>{{ line.label }}</span>
+                {% else %}
+                    <a href="{{ line.link }}">{{ line.label }}</a>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+<div class="row text-center column">
+    {% assign first_element = true %}
+    {% for line in site.data.footer.center %}
+        {% if first_element == true %}
+            {% assign first_element = false %}
+            {% if line.link == '' or line.link == nil %}
+                <span>{{ line.label }}</span>
+            {% else %}
+                <a href="{{ line.link }}">{{ line.label }}</a>
+            {% endif %}
+        {% else %}
+            <span>|</span>
+            {% if line.link == '' or line.link == nil %}
+                <span>{{ line.label }}</span>
+            {% else %}
+                <a href="{{ line.link }}">{{ line.label }}</a>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>

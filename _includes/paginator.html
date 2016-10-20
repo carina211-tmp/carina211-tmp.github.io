@@ -1,0 +1,50 @@
+<!-- Pagination links -->
+<ul class="pagination text-center" role="navigation" aria-label="Pagination">
+    {% if paginator.previous_page %}
+    <li class="pagination-previous"><a href="{{ paginator.previous_page_path | prepend: site.baseurl }}" aria-label="Previous page">Anterior <span class="show-for-sr">página</span></a></li>
+    {% else %}
+    <li class="pagination-previous disabled">Anterior <span class="show-for-sr">página</span></li>
+    {% endif %}
+
+    {% assign lowlimit = paginator.page | minus: 5 %}
+    {% assign highlimit = paginator.page | plus: 5 %}
+
+    {% if lowlimit > 1 %}
+    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '/page:num', '' }}" aria-label="Page 1">1</a></li>
+        {% if lowlimit > 2 %}
+        <li class="ellipsis" aria-hidden="true"></li>
+        {% endif %}
+    {% endif %}
+
+
+    {% for i in ( lowlimit..highlimit ) %}
+    {% if i < 1 or paginator.total_pages < i %}
+        {% continue %}
+        {% else %}
+            {% if i == paginator.page %}
+            <li class="current"><span class="show-for-sr">You're on page</span> {{ paginator.page }}</li>
+            {% else %}
+                {% if i == 1 %}
+                {% assign href = site.paginate_path | prepend: site.baseurl | replace: '/page:num', '' %}
+                {% else %}
+                {% assign href = site.paginate_path | prepend: site.baseurl | replace: ':num', i %}
+                {% endif %}
+                <li><a href="{{ href }}" aria-label="Page {{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+
+    {% if highlimit < paginator.total_pages %}
+        {% assign penultimatePage = paginator.total_pages | minus: 1 %}
+        {% if highlimit < penultimatePage %}
+        <li class="ellipsis" aria-hidden="true"></li>
+        {% endif %}
+    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: ':num', paginator.total_pages }}" aria-label="Page {{ paginator.total_pages }}">{{ paginator.total_pages }}</a></li>
+    {% endif %}
+
+    {% if paginator.next_page %}
+    <li class="pagination-next"><a href="{{ paginator.next_page_path | prepend: site.baseurl }}" aria-label="Next page">Siguiente <span class="show-for-sr">página</span></a></li>
+    {% else %}
+    <li class="pagination-next disabled">Siguiente <span class="show-for-sr">página</span></li>
+    {% endif %}
+</ul>

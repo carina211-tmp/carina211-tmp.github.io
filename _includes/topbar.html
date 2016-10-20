@@ -1,0 +1,64 @@
+{% assign buttons = site.pages | where_exp: "button", "button.path contains 'main/'" | sort: 'path' %}
+{% assign left_buttons = buttons | where_exp: "button", "button.position != 'right'" %}
+{% assign right_buttons = buttons | where_exp: "button", "button.position == 'right'" %}
+<div class="large-12 columns">
+    <div class="title-bar" data-responsive-toggle="main-menu" data-hide-for="large">
+        <button class="menu-icon" type="button" data-toggle></button>
+        <div class="title-bar-title">Menú</div>
+    </div>
+    <div class="top-bar" id="main-menu">
+        <div class="top-bar-left">
+            <ul class="vertical large-horizontal menu">
+                <!-- Top Bar -->
+                {% for button in left_buttons %}
+                    {% if button.link contains 'http://' or button.link contains 'https://' %}
+                        {% assign href = button.link %}
+                    {% elsif button.link != nil %}
+                        {% assign href = button.link | replace: '//', '/' %}
+                    {% else %}
+                        {% assign href = button.url | replace: '//', '/' %}
+                    {% endif %}
+
+                    {% unless button.link contains 'http://' or button.link contains 'https://' or button.link == site.baseurl %}
+                        {% assign href = href | prepend: site.baseurl %}
+                    {% endunless %}
+
+                    {% assign class = nil %}
+                    {% if button.class != nil %}
+                        {% assign class = class | prepend: ' ' | prepend: button.class | strip %}
+                    {% endif %}
+                    {% if page.url == href %}
+                        {% assign class = class | prepend: 'active ' | strip %}
+                    {% endif %}
+                    <li{% if class != nil %} class="{{ class }}"{% endif %}><a href="{{ href }}">{{ button.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="top-bar-right">
+            <ul class="vertical large-horizontal menu">
+                {% for button in right_buttons %}
+                    {% if button.link contains 'http://' or button.link contains 'https://' %}
+                        {% assign href = button.link %}
+                    {% elsif button.link != nil %}
+                        {% assign href = button.link | replace: '//', '/' %}
+                    {% else %}
+                        {% assign href = button.url | replace: '//', '/' %}
+                    {% endif %}
+
+                    {% assign class = nil %}
+                    {% if button.class != nil %}
+                        {% assign class = class | prepend: ' ' | prepend: button.class | strip %}
+                    {% endif %}
+                    {% if page.url == href %}
+                        {% assign class = class | prepend: 'active ' | strip %}
+                    {% endif %}
+
+                    {% unless button.link contains 'http://' or button.link contains 'https://' %}
+                        {% assign href = href | prepend: site.baseurl %}
+                    {% endunless %}
+                    <li{% if class != nil %} class="{{ class }}"{% endif %}><a href="{{ href }}">{{ button.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

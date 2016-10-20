@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ site.language }}" dir="ltr">
+
+    {% include head.html %}
+
+    <body>
+        <!-- Footer pusher and background holder -->
+        <div id="content-wrapper">
+
+            {% include header.html %}
+
+            <div id="main-wrapper" class="row columns">
+                <div class="medium-3 show-for-medium columns">{% include sidebar.html %}</div>
+                <div class="small-12 medium-9 columns">
+                    <!-- Menu bar wrapper -->
+                    <div id="menu-wrapper" class="row">{% include topbar.html %}</div>
+                    {{ content }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div id="footer-wrapper" class="row">
+            {% include footer.html %}
+        </div>
+
+        <script src="{{ site.baseurl }}js/vendor/jquery.js"></script>
+        <script src="{{ site.baseurl }}js/vendor/what-input.js"></script>
+        <script src="{{ site.baseurl }}js/vendor/foundation.js"></script>
+        <script src="{{ site.baseurl }}js/behaviour.js"></script>
+    </body>
+</html>

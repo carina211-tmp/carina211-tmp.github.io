@@ -1,0 +1,19 @@
+$cutaway-width: 1em;
+.cutaway {
+    position: relative;
+    background-color: $main-color;
+    color: $main-color-contrast;
+    padding: 1em 1em 0.5em;
+}
+.cutaway:before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    border-top-width: $cutaway-width;
+    border-top-style: solid;
+    border-color: $content-background-color;
+    border-left-width: $cutaway-width;
+    border-left-style: solid;
+    border-left-color: $main-color;
+    width: 0;
+}

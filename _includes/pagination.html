@@ -1,0 +1,33 @@
+<div id="paginator" class="posts row">
+    <div class="small-12 columns" data-equalizer="titles">
+        {% for post in paginator.posts %}
+        {% assign post_folder = {{ site.paginate_path | prepend: site.baseurl | append: post.id | replace: '/page:num', '' }} %}
+        <div class="row">
+            <article>
+                <div class="medium-12 columns">
+                    <header data-equalizer-watch="titles">
+                        <h4><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h4>
+                    </header>
+                    <small><date>{{ post.date | date_to_string }}</date></small>
+                    <span class="article-content">
+                    {% if post.summary %}
+                        {{ post.summary }}
+                    {% elsif post.excerpt %}
+                        {{ post.excerpt | truncatewords:150 | strip_html }}
+                    {% else %}
+                        {{ post.content | truncatewords:150 | strip_html }}
+                    {% endif %}
+                    </span>
+                    <footer>
+                        <a href="{{ site.baseurl }}{{ post.url }}">Leer más</a><br>
+                    </footer>
+                </div>
+            </article>
+        </div>
+        {% endfor %}
+        <div class="row">
+        {% include paginator.html %}
+        </div>
+    </div>
+</div>
+

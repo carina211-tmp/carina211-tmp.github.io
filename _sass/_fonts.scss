@@ -1,0 +1,41 @@
+#main-menu{
+    li {
+        font-family: 'Raleway', sans-serif;
+        text-transform: uppercase;
+    }
+}
+#content-wrapper {
+    h1, h2, h3 {
+        font-family: 'Raleway', sans-serif;
+        font-weight: 300;
+        text-transform: uppercase;
+    }
+    h2, h3 {
+        border-bottom-style: solid;
+        border-bottom-width: 3px;
+        display: inline-block;
+    }
+    h2 {
+        font-size: 2em;
+    }
+}
+#main-wrapper > .columns:nth-of-type(2) {
+    text-align: justify;
+    p {
+        text-indent: 3em;
+    }
+}
+
+#footer-wrapper {
+    text-align: center;
+    > div {
+        font-size: 70%;
+    }
+}
+
+#header-wrapper{
+    > div{
+        text-align: center;
+    }
+}
+

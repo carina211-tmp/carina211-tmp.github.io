@@ -1,0 +1,35 @@
+{% capture unused %}
+    {% unless page.lang %}
+        {% assign lang = site.lang %}
+    {% else %}
+        {% assign lang = page.lang %}
+    {% endunless %}
+
+    {% if lang == site.lang %}
+        {% assign indexfile = 'index.html' %}
+        {% assign feedfile  = 'feed.xml'   %}
+    {% else %}
+        {% assign indexfile = 'index.' | append: page.lang | append: '.html' %}
+        {% assign feedfile  = 'feed.'  | append: page.lang | append: '.xml'  %}
+    {% endif %}
+
+    {% assign feedfile   = feedfile        | prepend: site.baseurl                                                %}
+    {% assign cssfile    = "style.css"     | prepend: site.baseurl                                                %}
+    {% assign canonical  = page.url        | replace: indexfile,''    | prepend: site.baseurl | prepend: site.url %}
+    {% assign posts      = site.posts      | where:   "ref", page.ref | sort: 'lang'                              %}
+    {% assign pages      = site.pages      | where:   "ref", page.ref | sort: 'lang'                              %}
+    {% assign dictionary = "turismo_"      | append:  lang                                                        %}
+
+    {% if page.excerpt %}
+        {% assign description = page.excerpt | strip_html | strip_newlines | truncate: 160 %}
+    {% else %}
+        {% assign description = site.description %}
+    {% endif %}
+
+    {% if page.title %}
+        {% assign title = page.title | escape %}
+    {% else %}
+        {% assign title = site.title %}
+    {% endif %}
+
+{% endcapture %}

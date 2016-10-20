@@ -1,0 +1,18 @@
+left:
+    - 
+      label: "© PPUC."
+    - 
+      label: "Diseño según Anexo web de la imagen visual corporativa ULL"
+      link: 'http://www.ull.es/imagencorporativa/img/Anexo-web-formato-descarga-web.pdf'
+right:
+    - 
+      label: "Síguenos en las redes sociales"
+    - 
+      label: "Facebook"
+      link: 'http://www.facebook.com/home.php?#!/pages/San-Cristobal-De-La-Laguna-Spain/Universidad-de-La-Laguna-ULL/215062516098?ref=ts'
+    - 
+      label: "Twitter"
+      link: 'https://twitter.com/CanalULL'
+    - 
+      label: "RSS"
+      link: 'http://www.ull.es/rss/create.aspx?portalcategoryname=institucional&portalname=ull'

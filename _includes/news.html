@@ -1,0 +1,29 @@
+<div id="news" data-equalizer="articles">
+    <div class="row small-up-1" data-equalizer="titles">
+        {% for post in site.posts limit:2 %}
+        {% assign post_folder = {{ site.paginate_path | prepend: site.baseurl | append: post.id | replace: '/page:num', '' | append: '/' }} %}
+        <div class="column">
+            <article>
+                <div data-equalizer-watch="articles">
+                    <header data-equalizer-watch="titles">
+                        <h6><a href="{{ site.baseurl | append: post.url | replace: '//', '/' }}">{{ post.title }}</a></h6>
+                    </header>
+                    <small><date>{{ post.date | date_to_string }}</date></small>
+                    <span class="article-content">
+                    {% if post.summary %}
+                        {{ post.summary }}
+                    {% elsif post.excerpt %}
+                        {{ post.excerpt | truncatewords:20 | strip_html }}
+                    {% else %}
+                        {{ post.content | truncatewords:20 | strip_html }}
+                    {% endif %}
+                    </span>
+                </div>
+                <footer>
+                    <a href="{{ site.baseurl }}{{ post.url }}">Leer más</a><br>
+                </footer>
+            </article>
+        </div>
+        {% endfor %}
+    </div>
+</div>

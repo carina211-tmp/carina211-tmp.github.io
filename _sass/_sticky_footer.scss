@@ -1,0 +1,16 @@
+
+#content-wrapper {
+    margin: 0;
+    min-height: calc( 100vh - #{$footer_height} );
+    min-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: visible;
+}
+
+#footer-wrapper {
+    margin: 0;
+    height: $footer_height;
+    min-width: 100vw;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}

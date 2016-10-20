@@ -1,0 +1,53 @@
+---
+---
+/******************************************************
+     Variables
+ ******************************************************/
+
+{% for variable in site.sass.variables %}
+    ${{ variable[0] }}: {{ variable[1] }};
+{% endfor %}
+
+/* Fade Slider */
+$slides: {% increment fading_slides %};
+{% for image in site.static_files %}
+    {% if image.path contains 'img/banners/' %}
+    $slides: {% increment fading_slides %};
+    {% endif %}
+{% endfor %}
+
+/******************************************************
+     Modules
+ ******************************************************/
+
+{% for file in site.sass.imports %}
+    @import '{{ file }}';
+{% endfor %}
+
+/******************************************************
+     Code
+ ******************************************************/
+
+body{
+    overflow-x: hidden;
+}
+#main-menu {
+    border-radius: 0 0 5px;
+}
+#header-wrapper .sliding-banner {
+    border-radius: 0.5em 0.5em 0 0;
+}
+#main-wrapper > .columns:nth-of-type(2) {
+    background-image: $body_background_image;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-position: center;
+}
+
+#events {
+    img {
+        height: 31em;
+    }
+}
+

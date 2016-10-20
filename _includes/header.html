@@ -1,0 +1,17 @@
+<div id="header-wrapper" class="row columns">
+    <div class="row" data-equalizer="header">
+        <div class="large-4 columns" data-equalizer-watch="header">
+            <a href="{{ site.parentsite }}"><img src="{{ site.baseurl }}img/logo.png"></a>
+        </div>
+        <div class="large-8 columns show-for-large">
+            <div class="large-12 columns fading-banner" data-equalizer-watch="header">
+                {% for image in site.static_files %}
+                    {% if image.path contains 'img/banners/' %}
+                    {% assign src = site.baseurl | append: image.path %}
+                    <figure><img src="{{ src }}" alt="banner" /></figure>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>

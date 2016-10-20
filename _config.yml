@@ -1,0 +1,69 @@
+# Permalinks
+permalink:           pretty
+
+# Setup
+title:               'Web del grupo claustral Programa para una Universidad Canaria, ULL'
+description:         'Web del grupo claustral Programa para una Universidad Canaria, ULL'
+lang:                es
+url:                 ''
+baseurl:             '/ull/'
+gems:                [jekyll-paginate]
+paginate_path:       "/blog/page:num/"
+paginate:            5
+
+# About/contact
+author:
+  name:              Manlio García
+  url:               https://twitter.com/quarkex
+  email:             quarkex@gmail.com
+
+# Custom vars
+version:             0.1.0
+parentsite:          "http://www.ull.es/"
+
+# Sass
+sass:
+    sass_dir:        _sass
+    style:           compressed
+    imports:         [ 'foundation', 'helpers', 'skel', 'fonts', 'colors', 'sticky_footer', 'css_fade_slider', 'cutaway' ]
+    variables:
+        main_color:               '#7A3B7A'
+        main_color_contrast:      'white'
+        main_color_shadeA:        '#BC87BC'
+        main_color_shadeB:        '#EDDDED'
+        secondary_color:          '#006699'
+        secondary_color_contrast: 'white'
+        secondary_color_shadeA:   '#8499AC'
+        secondary_color_shadeB:   '#EBF3FA'
+        secondary_color_shadeC:   '#028ACE'
+        tertiary_color:           '#666666'
+        tertiary_color_contrast:  'white'
+        tertiary_color_shadeA:    '#47545B'
+        tertiary_color_shadeB:    '#7F8B92'
+        content_background_color: 'white'
+        body_background_image:    'url("../img/background.png")'
+        time_for_slide:           '6s'
+        start_offset:             '100vw'
+        end_offset:               '-250vw'
+        speed:                    '30s'
+        footer_height:            '4em'
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: ""
+    values:
+      layout: "default"
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
