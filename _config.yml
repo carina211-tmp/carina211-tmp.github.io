@@ -6,7 +6,7 @@ title:               'Web del grupo claustral Programa para una Universidad Cana
 description:         'Web del grupo claustral Programa para una Universidad Canaria, ULL'
 lang:                es
 url:                 ''
-baseurl:             '/ull/'
+baseurl:             '/'
 gems:                [jekyll-paginate]
 paginate_path:       "/blog/page:num/"
 paginate:            5
